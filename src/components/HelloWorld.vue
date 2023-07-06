@@ -2,8 +2,10 @@
 import { chunk } from 'loadsh'
 import { reactive } from 'vue'
 
-defineProps<{ msg: string }>()
+import { Temporal} from '@js-temporal/polyfill'
 
+defineProps<{ msg: string }>()
+window.Temporal = Temporal
 let data = reactive({
   num: 0
 })
@@ -13,10 +15,12 @@ function addd() {
 console.log(chunk(arr, data.num));
 }
 
-function asdd(params: Array<number>) {
-  console.log([...params]);
-}
+// function asdd(params: Array<number>) {
+//   console.log([...params]);
+// }
 function asdds() {
+  console.log(chunk);
+  
   console.log([...arguments]);
 }
 
